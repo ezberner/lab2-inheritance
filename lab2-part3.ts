@@ -1,8 +1,8 @@
 class Account {
-    balance:number;
+    private balance:number;
     
-    constructor(initialBalance:number, ownerName:string) {
-        this.balance = initialBalance;
+    constructor(private theInitialBalance:number, private theOwnerName:string) {
+        this.balance = theInitialBalance;
     }
 
     deposit(depositAmt:number) {
@@ -17,3 +17,21 @@ class Account {
         console.log(this.balance);
     }
 }
+
+class Checking extends Account {
+    
+    constructor(initialBalance:number, ownerName:string) {
+        super(initialBalance, ownerName);
+    }
+}
+
+class Savings extends Account {
+
+    
+}
+
+
+
+let test1:Checking = new Checking(5000, "Bob");
+
+test1.checkBalance();
